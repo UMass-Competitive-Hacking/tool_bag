@@ -22,26 +22,26 @@ $ vim ./.vimrc
   ```
 
   2. Tabs (4 spaces)
-  ```
+  ```vim
   set tabstop=4
   set expandtab
   ```
 
   3. Mapping (convenience mappings)
   	1. Map 'jk' to the esc key
-  	```
+  	```vim
   	imap jk <Esc>
   	```
   	2. Map 'ww' to Escape insert-mode and write
-  	```
+  	```vim
   	imap ww <Esc>:w<Cr>
-  	```
+  	```vim
   	3. Map 'xx' to Escape insert-mode and write/quit
   	```
   	imap xx <Esc>:wq<Cr>
-  	```
+  	```vim
   	4. Color scheme example (Changes comments to cyan)
-  	```
+  	```vim
   	hi Comment ctermfg=cyan
   	```
 
