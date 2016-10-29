@@ -2,7 +2,9 @@
 
 ## Links:
 **[Jinja2 reference]**(http://jinja.pocoo.org/docs/dev/templates/)
+
 **[Flask]**(http://flask.pocoo.org/docs/0.11/)
+
 **[More Flask]**(https://exploreflask.com/en/latest/)
 
 To install Flask, use pip:
@@ -67,7 +69,6 @@ This simply imports 3 packages from the flask library and initializes an app ins
 3. **request** - Often you'll need to make a GET/POST using AJAX when app developing.  This import will let you parse what was passed to the server (example to come).
 
 ```
-
 @app.route("/", methods=["GET","POST"])
 def index():
     return render_template("index.html")
