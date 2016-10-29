@@ -23,13 +23,14 @@ $>> python
 Flask apps have key folders they look for on a server.
 
 If we have a Flask app in the file 'server.py', your directory should look like:
-/server_directory
+-/server_directory
   - server.py
   - templates/
   - static/
   - media/
 
 The directories:
+
 1. **templates/** - Where your HTML templates are stored (render_templates leads here)
 2. **static/** - Files like .css and .js are stored here (<link> tags will be referenced here)
 3. **media/** - Images stored here (static may also be used)
