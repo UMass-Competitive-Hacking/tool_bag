@@ -23,6 +23,7 @@ $>> python
 Flask apps have key folders they look for on a server.
 
 If we have a Flask app in the file 'server.py', your directory should look like:
+
 -/server_directory
   - server.py
   - templates/
