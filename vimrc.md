@@ -35,11 +35,11 @@ $ vim ./.vimrc
   	2. Map 'ww' to Escape insert-mode and write
   	```vim
   	imap ww <Esc>:w<Cr>
-  	```vim
-  	3. Map 'xx' to Escape insert-mode and write/quit
   	```
-  	imap xx <Esc>:wq<Cr>
+  	3. Map 'xx' to Escape insert-mode and write/quit
   	```vim
+  	imap xx <Esc>:wq<Cr>
+  	```
   	4. Color scheme example (Changes comments to cyan)
   	```vim
   	hi Comment ctermfg=cyan
