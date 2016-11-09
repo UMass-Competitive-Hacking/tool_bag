@@ -74,7 +74,8 @@ In Mongo we make Collections (only one level, rather than infinite)
 coll = db.CollectionName
 ```
 
-Where CollectionName is the name of you Collection
+Where CollectionName is the name of you Collection.
+
 
 ### Documents
 Finally, documents are the individual elements in your database (each member of a roster, etc.).
@@ -108,6 +109,8 @@ or more cleanly:
 ```python
 next( iter( coll.find( {'y':1})))
 ```
+
+**Purge documents** with coll.delete_many({})
 
 ### Where these points leave us
 After going down through the layers, we're left with links to:
