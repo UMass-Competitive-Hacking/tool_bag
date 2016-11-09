@@ -71,10 +71,43 @@ Think of these as the folders on you local system: you don't have EVERY SINGLE F
 In Mongo we make Collections (only one level, rather than infinite)
 
 ```python
-docs = db.CollectionName
+coll = db.CollectionName
 ```
 
 Where CollectionName is the name of you Collection
+
+### Documents
+Finally, documents are the individual elements in your database (each member of a roster, etc.).
+
+To list your documents, you need to iterate over a Collection's find() object
+
+```python
+for doc in coll.find():
+     print doc
+```
+
+Selecting individual documents can be done by passing find() a part of for what you are looking.
+
+e.g.:
+
+Say we have a collection (pointer: coll) that has these documents:
+```python
+{u'x': 1, u'_id': ObjectId('58234f9cdfd09406909f9887')}
+{u'y': 1, u'_id': ObjectId('58234fc3dfd09406909f9888')}
+{u'_id': ObjectId('58234fc7dfd09406909f9889'), u'z': 1}
+{u'a': 5, u'_id': ObjectId('58234fccdfd09406909f988a')}
+```
+
+You can select the 2nd document ('y':1) by passing some key:value pair into the find() function that's from the collection base.
+
+```python
+for doc in coll.find( {'y':1} ):
+    print doc
+```
+or more cleanly:
+```python
+next( iter( coll.find( {'y':1})))
+```
 
 ### Where these points leave us
 After going down through the layers, we're left with links to:
