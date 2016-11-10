@@ -107,7 +107,6 @@ You can select the 2nd document ('y':1) by passing some key:value pair into the 
 {u'y': 1, u'_id': ObjectId('58234fc3dfd09406909f9888')}
 ```
 
-<<<<<<< HEAD
 **Updating**
 If you want to update a single key:value pair (non-list), you can do so with ```update_one()```:
 ```
@@ -142,9 +141,7 @@ I won't go through every kind of update, but **$push** is an important one for l
 {u'y': [], u'_id': ObjectId('582355d0dfd0940754ccce24'), u'id': 2}
 ```
 
-=======
 **Purge documents** with coll.delete_many({})
->>>>>>> 10ff7ac844557e8ff87f4b85398ee27d5143c113
 
 ### Where these points leave us
 After going down through the layers, we're left with links to:
