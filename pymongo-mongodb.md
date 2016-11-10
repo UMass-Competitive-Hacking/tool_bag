@@ -87,11 +87,10 @@ for doc in coll.find():
 ```
 
 Selecting individual documents can be done by passing find() a part of for what you are looking.
+e.g.: Say we have a collection (pointer: coll) that has these documents:
+```
+>>> for d in coll.find(): print d
 
-e.g.:
-
-Say we have a collection (pointer: coll) that has these documents:
-```python
 {u'x': 1, u'_id': ObjectId('58234f9cdfd09406909f9887')}
 {u'y': 1, u'_id': ObjectId('58234fc3dfd09406909f9888')}
 {u'_id': ObjectId('58234fc7dfd09406909f9889'), u'z': 1}
@@ -100,14 +99,47 @@ Say we have a collection (pointer: coll) that has these documents:
 
 You can select the 2nd document ('y':1) by passing some key:value pair into the find() function that's from the collection base.
 
-```python
-for doc in coll.find( {'y':1} ):
-    print doc
 ```
-or more cleanly:
-```python
-next( iter( coll.find( {'y':1})))
+>>> for doc in coll.find( {'y':1} ):
+...    print doc
+
+{u'y': 1, u'_id': ObjectId('58234fc3dfd09406909f9888')}
 ```
+
+**Updating**
+If you want to update a single key:value pair (non-list), you can do so with ```update_one()```:
+```
+>>> for d in coll.find(): print d
+
+{u'x': 1, u'_id': ObjectId('58234f9cdfd09406909f9887')}
+{u'y': 1, u'_id': ObjectId('58234fc3dfd09406909f9888')}
+{u'_id': ObjectId('58234fc7dfd09406909f9889'), u'z': 1}
+{u'a': 5, u'_id': ObjectId('58234fccdfd09406909f988a')}
+
+>>> coll.update( {'y' : 1}, {"$inc" : { 'y' : 3 }})
+>>> for d in coll.find(): print d
+
+{u'x': 1, u'_id': ObjectId('58234f9cdfd09406909f9887')}
+{**u'y': 4**, u'_id': ObjectId('58234fc3dfd09406909f9888')}
+{u'_id': ObjectId('58234fc7dfd09406909f9889'), u'z': 1}
+{u'a': 5, u'_id': ObjectId('58234fccdfd09406909f988a')}
+```
+Notice the "$inc" in the second command.  This stands for incriment, and that whole key:value pair { "$inc" : { 'y' : 3 } } means **incriment** the value of the key **'y'** by **3**.
+
+I won't go through every kind of update, but **$push** is an important one for lists...
+```
+>>> for d in coll.find(): print d
+
+{u'x': [], u'_id': ObjectId('582355cadfd0940754ccce23'), u'id': 1}
+{u'y': [], u'_id': ObjectId('582355d0dfd0940754ccce24'), u'id': 2}
+
+>>> coll.update( {'id' : 1}, {"$push" : { 'x' : 'this' }})
+>>> for d in coll.find(): print d
+
+{u'x': [u'this'], u'_id': ObjectId('582355cadfd0940754ccce23'), u'id': 1}
+{u'y': [], u'_id': ObjectId('582355d0dfd0940754ccce24'), u'id': 2}
+```
+
 
 ### Where these points leave us
 After going down through the layers, we're left with links to:
