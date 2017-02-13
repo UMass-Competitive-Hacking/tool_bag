@@ -107,6 +107,12 @@ You can select the 2nd document ('y':1) by passing some key:value pair into the 
 {u'y': 1, u'_id': ObjectId('58234fc3dfd09406909f9888')}
 ```
 
+**Inserting**
+Inserting a document into a collection called coll...
+```python
+>>> coll.insert_one({'this':'is a test'})
+```
+
 **Updating**
 If you want to update a single key:value pair (non-list), you can do so with ```update_one()```:
 ```
